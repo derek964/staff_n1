@@ -1,20 +1,21 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 
 # Create your views here.
 def login(request):
+    error_msg = ""
     if request.method == 'POST' and request.POST:
         username = request.POST['username']
         password = request.POST['password']
         userinfo = auth.authenticate(username=username, password=password)
         if userinfo:
             auth.login(request, userinfo)
-            return render(request, 'index.html')
+            return redirect('/index/')
         else:
-            return render(request, 'login.html')
-    return render(request, 'login.html')
+            error_msg = '用户名或密码错误'
+    return render(request, 'login.html', {'error_msg': error_msg})
 
 @login_required
 def index(request):
