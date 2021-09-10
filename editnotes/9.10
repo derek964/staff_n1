@@ -1,0 +1,15 @@
+9.10记录
+--
+**URL创建**一个导航栏：
+- index-登录页（上导航）
+- stat_staffinfo-统计-员工信息查看
+- stat_projwork-统计-投入游戏占比查看
+- staff_hire-录入-入职离职
+- staff_hcmodify-录入-HC调整
+- staff_percent-录入-工作投入 
+
+**操作**
+- 修改url 
+- 修改views
+- 修改template
+  
