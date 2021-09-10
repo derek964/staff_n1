@@ -35,12 +35,6 @@
    > - gamecode 项目编码（主键）
    > - gamename 项目名称（公共/小程序/频道/五指间…）
    
-   > **projectwork:**工作月份投入表
-   > - sname 姓名（外健）
-   > - gamename 项目名称（外健）
-   > - workpercent 投入占比
-   > - month 月份
-   
    > **staff:**
    > - scode 编码(主键)
    > - sname 姓名（*待招姓名统一用岗位名称*）
@@ -51,3 +45,8 @@
    > - sproduct 产品线（Z1/N1）
    > - stafflevel 职级
    
+   > **projectwork:**工作月份投入表
+   > - sname 姓名（外健）
+   > - gamename 项目名称（外健）
+   > - workpercent 投入占比
+   > - month 月份
