@@ -10,20 +10,20 @@ class dept(models.Model):
 
 
 class jobtype(models.Model):
-    job_type = models.TextChoices('jobtype', '策划 运营 程序 项管')
+    job_type = models.TextChoices('jobtype', '策划 运营 程序 美术 项管')
     jobcode = models.CharField(max_length=10, unique=True, primary_key=True)
     jobname = models.CharField(max_length=50, unique=True, verbose_name="岗位名称")
     jobtypename = models.CharField(choices=job_type.choices, max_length=10, verbose_name='岗位类型')
 
     def __str__(self):
-        self.jobtypename
+        return self.jobname
 
 class game(models.Model):
     gamecode = models.CharField(max_length=10, unique=True, primary_key=True)
     gamename = models.CharField(max_length=50, unique=True, verbose_name="游戏名称")
 
     def __str__(self):
-        self.gamename
+        return  self.gamename
 
 class staff(models.Model):
     staff_type = models.TextChoices('stafftype', '正职 实习生 外包 内包 基地')
@@ -39,4 +39,4 @@ class staff(models.Model):
     stafflevel = models.CharField(max_length=50, verbose_name="专业职级")
 
     def __str__(self):
-        self.sname
+        return self.sname
