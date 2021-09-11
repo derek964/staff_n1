@@ -1,0 +1,19 @@
+9.12记录
+--
+**用户系统**
+
+创建测试用户，创建测试数据，目前组已有（art、game1、game2、plat）四个组
+
+**用户**
+> admin——管理员
+> test——测试人员（非管理员）
+> plat——kemli
+> art——fox
+> game1——ruonan
+> game2——miki
+
+**增加一些测试数据**
+> art：art1
+> plat：plat1
+> game1：game1
+> game2：game2
