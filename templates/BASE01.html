@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+    <script src="/static/js/staff.js"></script>
 
 <head>
     <meta charset="utf-8" />
@@ -64,10 +65,7 @@
             <div class="king-layout1-sidebar king-full-height" style="width:216px;">
                 <nav style="min-width: auto; z-index: 0;" class="king-vertical-nav5 king-vertical-nav5-info king-full-height  m0">
                     <ul class="sidebar">
-{#                        注释掉原来模板中的左侧"首页"导航#}
-{#                        <li class="sidebar-main"> <a href="javascript:;"> #}
-{#                            首页 <span class="menu-icon glyphicon glyphicon-home"></span>#}
-{#                        </a> </li>#}
+
                         <li class="sidebar-title">
                             <a style="color: #333">
                                 <span>信息查看</span>
@@ -77,6 +75,7 @@
                                 <li class="sidebar-item"> <a href="/stat_projwork/">投入项目比例 <span class="menu-icon fa fa-newspaper-o"></span></a> </li>
                             </ul>
                         </li>
+
                         <li class="sidebar-title">
                             <a style="color: #333">
                                 <span>信息录入</span>
@@ -87,12 +86,17 @@
                                 <li class="sidebar-item"> <a href="/staff_percent/">工作投入 <span class="menu-icon fa fa-gear"></span></a> </li>
                             </ul>
                         </li>
+
                         <li class="sidebar-title">
-                            <a style="=color:#333" href="login.html">
-                                <span>注销</span>
+                            <a style="color: #333">
+                                <span>个人设置</span>
                             </a>
-                            <ul class="sidebar"> </ul>
+                            <ul class="sidebar">
+                                <li class="sidebar-item"> <a href="/changepassword/">密码修改 <span class="menu-icon fa fa-gear"></span></a> </li>
+                                <li class="sidebar-item"> <a href="/logout/">注销 <span class="menu-icon fa fa-gear"></span></a> </li>
+                            </ul>
                         </li>
+
                     </ul>
                 </nav>
             </div>
