@@ -69,6 +69,11 @@ TEMPLATES = [
     },
 ]
 
+# 网上找的，增加这部分，可以在模板中引用，获取当前用户
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.core.context_processors.request",
+)
+
 WSGI_APPLICATION = 'staff_n1.wsgi.application'
 
 
