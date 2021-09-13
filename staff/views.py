@@ -5,6 +5,7 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from staff.models import *
+from django.db.models import Q
 
 # Create your views here.
 def login(request):
@@ -54,8 +55,7 @@ def stat_staffinfo(request):
         if staff_name == "":
             staffinfos = staff.objects.all()
         else:
-            staffinfos = staff.objects.filter(sname=staff_name)
-            # staffinfos = staff.objects.extra(where=["stuffstatus = 'staff_name' OR sname = 'staff_name'"])
+            staffinfos = staff.objects.filter(Q(sname__icontains=staff_name) | Q(stafftype__icontains=staff_name))
     else:
         staffinfos = staff.objects.all()
     return render(request, 'stat_staffinfo.html', context=locals())
