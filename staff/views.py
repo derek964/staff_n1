@@ -50,11 +50,11 @@ def stat_staffinfo(request):
     # 获取当前登录用户
     user_name = request.user
     if request.method == 'POST' and request.POST:
-        staff_name = request.POST['staff_name']
-        if staff_name == "":
+        search_contains = request.POST['search_contains']
+        if search_contains == "":
             staffinfos = staff.objects.all()
         else:
-            staffinfos = staff.objects.get(Q(sname__icontains=staff_name) | Q(stafftype__icontains=staff_name))
+            staffinfos = staff.objects.filter(Q(sname__icontains=search_contains) | Q(stafftype__icontains=search_contains) | Q(stuffstatus__icontains=search_contains))
     else:
         staffinfos = staff.objects.all()
     return render(request, 'stat_staffinfo.html', context=locals())

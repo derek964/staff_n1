@@ -3,8 +3,8 @@
 {% block content %}
     <p></p>
     <form action="/stat_staffinfo/" method="post">
-        <label for="your_name">姓名: </label>
-        <input id="your_name" type="text" name="staff_name" value="{{ staff_name }}">
+        <label for="your_name">姓名/类型/状态: </label>
+        <input id="your_name" type="text" name="search_contains" value="{{ search_contains }}">
         <input type="submit" value="OK">
     </form>
     <table class="table table-bordered">
