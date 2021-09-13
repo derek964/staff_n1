@@ -4,6 +4,7 @@ from django.http import JsonResponse
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
+from staff.models import *
 
 # Create your views here.
 def login(request):
@@ -45,7 +46,18 @@ def changepassword(request):
 
 @login_required
 def stat_staffinfo(request):
-    return render(request, 'stat_staffinfo.html')
+    # 获取当前登录用户
+    # username = request.user
+    # userinfo = student.objects.filter(username=username)
+    if request.method == 'POST' and request.POST:
+        staff_name = request.POST['staff_name']
+        if staff_name == "":
+            staffinfos = staff.objects.all()
+        else:
+            staffinfos = staff.objects.filter(sname=staff_name)
+    else:
+        staffinfos = staff.objects.all()
+    return render(request, 'stat_staffinfo.html', context=locals())
 
 @login_required
 def stat_projwork(request):

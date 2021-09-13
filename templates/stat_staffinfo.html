@@ -1,5 +1,34 @@
 {% extends 'BASE01.html' %}
 
 {% block content %}
-    stat_staffinfo
+    <p></p>
+    <form action="/stat_staffinfo/" method="post">
+        <label for="your_name">姓名: </label>
+        <input id="your_name" type="text" name="staff_name" value="{{ staff_name }}">
+        <input type="submit" value="OK">
+    </form>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>企微</th>
+            <th>名称</th>
+            <th>类型</th>
+            <th>状态</th>
+            <th>产品线</th>
+            <th>部门</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in staffinfos %}
+            <tr>
+                <td>{{ i.scode }}</td>
+                <td>{{ i.sname }}</td>
+                <td>{{ i.stafftype }}</td>
+                <td>{{ i.stuffstatus }}</td>
+                <td>{{ i.sproduct}}</td>
+                <td>{{ i.sdept_id }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
