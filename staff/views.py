@@ -48,14 +48,13 @@ def changepassword(request):
 @login_required
 def stat_staffinfo(request):
     # 获取当前登录用户
-    # username = request.user
-    # userinfo = student.objects.filter(username=username)
+    user_name = request.user
     if request.method == 'POST' and request.POST:
         staff_name = request.POST['staff_name']
         if staff_name == "":
             staffinfos = staff.objects.all()
         else:
-            staffinfos = staff.objects.filter(Q(sname__icontains=staff_name) | Q(stafftype__icontains=staff_name))
+            staffinfos = staff.objects.get(Q(sname__icontains=staff_name) | Q(stafftype__icontains=staff_name))
     else:
         staffinfos = staff.objects.all()
     return render(request, 'stat_staffinfo.html', context=locals())
