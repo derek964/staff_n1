@@ -30,7 +30,7 @@ class staff(models.Model):
     stuff_status = models.TextChoices('staffstatus', '在职 待招')
     stuff_product = models.TextChoices('staffproduct', 'Z1 N1')
     scode = models.CharField(max_length=10, unique=True, primary_key=True, verbose_name="编码")
-    sname = models.CharField(max_length=20, unique=True, verbose_name="姓名")
+    sname = models.CharField(max_length=20, verbose_name="姓名")
     jobname = models.ForeignKey(jobtype, on_delete=models.CASCADE, verbose_name="岗位名称")
     stafftype = models.CharField(choices=staff_type.choices, max_length=20, verbose_name='员工类型')
     stuffstatus = models.CharField(choices=stuff_status.choices, max_length=10, verbose_name="员工状态")

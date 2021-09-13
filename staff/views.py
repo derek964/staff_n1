@@ -55,6 +55,7 @@ def stat_staffinfo(request):
             staffinfos = staff.objects.all()
         else:
             staffinfos = staff.objects.filter(sname=staff_name)
+            # staffinfos = staff.objects.extra(where=["stuffstatus = 'staff_name' OR sname = 'staff_name'"])
     else:
         staffinfos = staff.objects.all()
     return render(request, 'stat_staffinfo.html', context=locals())
