@@ -54,7 +54,9 @@ def stat_staffinfo(request):
         if search_contains == "":
             staffinfos = staff.objects.all()
         else:
-            staffinfos = staff.objects.filter(Q(sname__icontains=search_contains) | Q(stafftype__icontains=search_contains) | Q(stuffstatus__icontains=search_contains))
+            staffinfos = staff.objects.filter(Q(sname__icontains=search_contains) |
+                                              Q(stafftype__icontains=search_contains) |
+                                              Q(stuffstatus__icontains=search_contains))
     else:
         staffinfos = staff.objects.all()
     return render(request, 'stat_staffinfo.html', context=locals())
@@ -73,7 +75,10 @@ def staff_hire(request):
         result = 'True'
         return JsonResponse({'result': result})
         search_contains = request.POST['search_contains']
-        staffinfos = staff.objects.filter(Q(scode__icontains=scode) | Q(sname__icontains=search_contains) | Q(stafftype__icontains=search_contains) | Q(stuffstatus__icontains=search_contains))
+        staffinfos = staff.objects.filter(Q(scode__icontains=scode) |
+                                          Q(sname__icontains=search_contains) |
+                                          Q(stafftype__icontains=search_contains) |
+                                          Q(stuffstatus__icontains=search_contains))
     staffinfos = staff.objects.all()
     return render(request, 'staff_hire.html', context=locals())
 
