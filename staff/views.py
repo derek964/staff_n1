@@ -65,6 +65,16 @@ def stat_projwork(request):
 
 @login_required
 def staff_hire(request):
+    if request.method == 'POST' and request.POST:
+        scode = request.POST['scode']
+        sname = request.POST['sname']
+        print(sname)
+        staff.objects.filter(scode=scode).update(sname=sname)
+        result = 'True'
+        return JsonResponse({'result': result})
+        search_contains = request.POST['search_contains']
+        staffinfos = staff.objects.filter(Q(scode__icontains=scode) | Q(sname__icontains=search_contains) | Q(stafftype__icontains=search_contains) | Q(stuffstatus__icontains=search_contains))
+    staffinfos = staff.objects.all()
     return render(request, 'staff_hire.html', context=locals())
 
 @login_required

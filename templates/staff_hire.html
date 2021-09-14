@@ -1,5 +1,43 @@
 {% extends 'BASE01.html' %}
 
 {% block content %}
-    staff_hire
+    <p></p>
+    <form action="/staff_hire/" method="post">
+        <label for="your_name">姓名/类型/状态: </label>
+        <input id="your_name" type="text" name="search_contains" value="{{ search_contains }}">
+        <input type="submit" value="OK">
+    </form>
+    <table class="table table-bordered">
+    <link href="https://magicbox.bk.tencent.com/static_api/v3/assets/artDialog-6.0.4/css/ui-dialog.css" rel="stylesheet">
+    <script src="https://magicbox.bk.tencent.com/static_api/v3/assets/artDialog-6.0.4/dist/dialog-min.js"></script>
+        <thead>
+        <tr>
+            <th style="width:10%;">企微</th>
+            <th style="width:10%;">名称</th>
+            <th style="width:10%;">类型</th>
+            <th style="width:10%;">状态</th>
+            <th style="width:10%;">产品线</th>
+            <th style="width:10%;">部门</th>
+            <th style="width:10%;">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in staffinfos %}
+            <tr>
+                <td>{{ i.scode }}</td>
+                <td>{{ i.sname }}</td>
+                <td>{{ i.stafftype }}</td>
+                <td>{{ i.stuffstatus }}</td>
+                <td>{{ i.sproduct}}</td>
+                <td>{{ i.sdept_id }}</td>
+                <td>
+                    <button class="btn btn-xs btn-warning" title="编辑" onclick="hire('{{ i.scode }}', '{{ i.sname }}')">
+                        <i class="glyphicon glyphicon-edit"></i>
+                    </button>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
