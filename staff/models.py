@@ -27,7 +27,7 @@ class game(models.Model):
 
 class staff(models.Model):
     staff_type = models.TextChoices('stafftype', '正职 实习生 外包 内包 基地')
-    stuff_status = models.TextChoices('staffstatus', '在职 待招')
+    stuff_status = models.TextChoices('staffstatus', '在职 待招 offer')
     stuff_product = models.TextChoices('staffproduct', 'Z1 N1')
     scode = models.CharField(max_length=10, unique=True, primary_key=True, verbose_name="编码")
     sname = models.CharField(max_length=20, verbose_name="姓名")
