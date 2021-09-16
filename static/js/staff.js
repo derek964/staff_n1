@@ -22,19 +22,30 @@ function changepassword() {
 };
 
 //editscore的函数
-function hire(scode, sname){
+function hire(scode, sname, stafftype, jobname, staffstatus ){
     var d = dialog({
-            width: 360,
+            width: 300,
             title: '员工姓名修改',
             quickClose: true,
-            content: '<label class="col-sm-3 control-label bk-lh30 pt0">姓名：</label>' +
-                '<div class="col-sm-9">' +
-                '<input type="text" class="form-control bk-valign-top" id="snamed" placeholder=""> ' +
-                '</div>',
+            content: '<label>姓名：</label>' + '<input type="text" id="snamed" placeholder="">' + '<p></p>' +
+                '<label>类型：</label>' +  '<select style="height: 20px; width:100px" id="stafftyped">\n' +
+                    '<option value="正职">正职</option>\n' +
+                    '<option value="实习生">实习生</option>\n' +
+                    '<option value="外包">外包</option>\n' +
+                    '<option value="内包">内包</option>\n' +
+                    '<option value="基地">基地</option>\n' + '</select>' + '<p></p>' +
+                '<label>岗位名称：</label>' +'<input type="text" id="job_id" placeholder="">' + '<p></p>' +
+                '<label>状态：</label>' + '<select style="height: 20px; width:100px" id="staffstatused">\n' +
+                    '<option value="在职">在职</option>\n' +
+                    '<option value="offer">offer</option>\n' +
+                    '<option value="待招">待招</option>\n' + '</select> ',
             ok: function() {
                     $.post('/staff_hire/', {
-                    'scode': scode,
-                    'sname': $('#snamed').val(),
+                        'scode': scode,
+                        'sname': $('#snamed').val(),
+                        'stafftype':$('#stafftyped').val(),
+                        'jobname_id':$('#job_id').val(),
+                        'staffstatus': $('#staffstatused').val(),
                     }, function (res) {
                         if (res.result == 'True') {
                             alert("修改成功");
@@ -52,6 +63,9 @@ function hire(scode, sname){
             },
             onshow: function() {
                 $('#snamed').val(sname);
+                $('#stafftyped').val(stafftype);
+                $('#job_id').val(jobname);
+                $('#staffstatused').val(staffstatus);
                 // do something
             }
         });

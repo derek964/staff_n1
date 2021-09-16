@@ -15,6 +15,7 @@
         <tr>
             <th style="width:10%;">企微</th>
             <th style="width:10%;">名称</th>
+            <th style="width:10%;">岗位名称</th>
             <th style="width:10%;">类型</th>
             <th style="width:10%;">状态</th>
             <th style="width:10%;">产品线</th>
@@ -27,12 +28,14 @@
             <tr>
                 <td>{{ i.scode }}</td>
                 <td>{{ i.sname }}</td>
+                <td>{{ i.jobname }}</td>
                 <td>{{ i.stafftype }}</td>
-                <td>{{ i.stuffstatus }}</td>
+                <td>{{ i.staffstatus }}</td>
                 <td>{{ i.sproduct}}</td>
                 <td>{{ i.sdept_id }}</td>
                 <td>
-                    <button class="btn btn-xs btn-warning" title="编辑" onclick="hire('{{ i.scode }}', '{{ i.sname }}')">
+                    <button class="btn btn-xs btn-warning" title="编辑"
+                            onclick="hire('{{ i.scode }}', '{{ i.sname }}', '{{ i.stafftype }}', '{{ i.jobname}}','{{ i.staffstatus }}')">
                         <i class="glyphicon glyphicon-edit"></i>
                     </button>
 

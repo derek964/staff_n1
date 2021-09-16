@@ -56,7 +56,7 @@ def stat_staffinfo(request):
         else:
             staffinfos = staff.objects.filter(Q(sname__icontains=search_contains) |
                                               Q(stafftype__icontains=search_contains) |
-                                              Q(stuffstatus__icontains=search_contains))
+                                              Q(staffstatus__icontains=search_contains))
     else:
         staffinfos = staff.objects.all()
     return render(request, 'stat_staffinfo.html', context=locals())
@@ -70,15 +70,21 @@ def staff_hire(request):
     if request.method == 'POST' and request.POST:
         scode = request.POST['scode']
         sname = request.POST['sname']
+        jobname_id = request.POST['jobname_id']
+        stafftype = request.POST['stafftype']
+        staffstatus = request.POST['staffstatus']
         print(sname)
-        staff.objects.filter(scode=scode).update(sname=sname)
+        print(stafftype)
+        print(job)
+        print(staffstatus)
+        staff.objects.filter(scode=scode).update(sname=sname, staffstatus=staffstatus, stafftype=stafftype, jobname=jobname_id)
         result = 'True'
         return JsonResponse({'result': result})
-        search_contains = request.POST['search_contains']
-        staffinfos = staff.objects.filter(Q(scode__icontains=scode) |
-                                          Q(sname__icontains=search_contains) |
-                                          Q(stafftype__icontains=search_contains) |
-                                          Q(stuffstatus__icontains=search_contains))
+        # search_contains = request.POST['search_contains']
+        # staffinfos = staff.objects.filter(Q(scode__icontains=scode) |
+        #                                   Q(sname__icontains=search_contains) |
+        #                                   Q(stafftype__icontains=search_contains) |
+        #                                   Q(stuffstatus__icontains=search_contains))
     staffinfos = staff.objects.all()
     return render(request, 'staff_hire.html', context=locals())
 
