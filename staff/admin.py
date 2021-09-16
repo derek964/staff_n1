@@ -3,7 +3,7 @@ from staff.models import *
 
 # Register your models here.
 admin.site.register(dept)
-admin.site.register(jobtype)
+admin.site.register(job)
 admin.site.register(game)
 admin.site.register(staff)
 

@@ -8,8 +8,8 @@ class dept(models.Model):
     def __str__(self):
         return self.deptname
 
-
-class jobtype(models.Model):
+# 岗位名称
+class job(models.Model):
     job_type = models.TextChoices('jobtype', '策划 运营 程序 美术 项管')
     jobcode = models.CharField(max_length=10, unique=True, primary_key=True)
     jobname = models.CharField(max_length=50, unique=True, verbose_name="岗位名称")
@@ -27,15 +27,15 @@ class game(models.Model):
 
 class staff(models.Model):
     staff_type = models.TextChoices('stafftype', '正职 实习生 外包 内包 基地')
-    stuff_status = models.TextChoices('staffstatus', '在职 待招 offer')
-    stuff_product = models.TextChoices('staffproduct', 'Z1 N1')
+    staff_status = models.TextChoices('staffstatus', '在职 待招 offer')
+    staff_product = models.TextChoices('staffproduct', 'Z1 N1')
     scode = models.CharField(max_length=10, unique=True, primary_key=True, verbose_name="编码")
     sname = models.CharField(max_length=20, verbose_name="姓名")
-    jobname = models.ForeignKey(jobtype, on_delete=models.CASCADE, verbose_name="岗位名称")
+    jobname = models.ForeignKey(job, on_delete=models.CASCADE, verbose_name="岗位名称")
     stafftype = models.CharField(choices=staff_type.choices, max_length=20, verbose_name='员工类型')
-    stuffstatus = models.CharField(choices=stuff_status.choices, max_length=10, verbose_name="员工状态")
+    staffstatus = models.CharField(choices=staff_status.choices, max_length=10, verbose_name="员工状态")
     sdept = models.ForeignKey(dept, on_delete=models.CASCADE, verbose_name="所在部门")
-    sproduct = models.CharField(choices=stuff_product.choices, max_length=10,  verbose_name="产品线")
+    sproduct = models.CharField(choices=staff_product.choices, max_length=10,  verbose_name="产品线")
     stafflevel = models.CharField(max_length=50, verbose_name="专业职级")
 
     def __str__(self):
