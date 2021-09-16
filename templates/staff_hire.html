@@ -2,11 +2,12 @@
 
 {% block content %}
     <p></p>
-    <form action="/staff_hire/" method="post">
-        <label for="your_name">姓名/类型/状态: </label>
-        <input id="your_name" type="text" name="search_contains" value="{{ search_contains }}">
-        <input type="submit" value="OK">
-    </form>
+{#    先不做搜索，暂时不知道怎么实现同时搜索，同时修改#}
+{#    <form action="/staff_hire/" method="post">#}
+{#        <label for="your_name">姓名/类型/状态: </label>#}
+{#        <input id="your_name" type="text" name="search_contains" value="{{ search_contains }}">#}
+{#        <input type="submit" value="OK">#}
+{#    </form>#}
     <table class="table table-bordered">
     <link href="https://magicbox.bk.tencent.com/static_api/v3/assets/artDialog-6.0.4/css/ui-dialog.css" rel="stylesheet">
     <script src="https://magicbox.bk.tencent.com/static_api/v3/assets/artDialog-6.0.4/dist/dialog-min.js"></script>
