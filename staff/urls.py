@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'^staff_percent', staff_percent),
     url(r'^logout', login),
     url(r'^changepassword', changepassword),
+    url(r'^temp',temp)
     ]

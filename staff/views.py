@@ -99,3 +99,5 @@ def staff_percent(request):
 def logout(request):
     return render(request, 'logout.html')
 
+def temp(request):
+    return render(request, 'temp.html')

@@ -1,0 +1,18 @@
+{% extends 'BASE01.html' %}
+
+{% block content %}
+    <button class="btn btn-default" type="button" id="create_dir" name="create_dir" value="create_dir" style='margin-left:10px;margin-right:10px;color:rgb(60, 141, 188);' onclick="AddRow($('#table2')[0],1)">新建文件夹</button>
+
+    <table id="table2" class="table table-hover" style="overflow: auto;" >
+    <tr>
+    <td class='th3' EditType="TextBox">
+                           <img src="/static/img/file4_24.ico">&nbsp;&nbsp;&nbsp;
+                           {% if fileinfo.search_flag == 0 %}
+                           {{ fileinfo.file_name }}
+                           {% else %}
+                           {{ fileinfo.file_path }}
+                           {% endif %}
+                        </td>
+</tr>
+
+{% endblock %}
